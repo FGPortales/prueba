@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Lista de Peliculas -->
+    <record id="pelicula_view_tree" model="ir.ui.view">
+        <field name="name">pelicula.view.tree</field>
+        <field name="model">videostore.pelicula</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="duracion"/>
+                <field name="director"/>
+                <field name="anio_lanzamiento"/>
+                <field name="genero"/>
+                <field name="numero"/>
+                <field name="resenia"/>
+            </tree>
+        </field>
+
+    </record>
+
+
+
+        <!-- Lista de Peliculas -->
+    <record id="pelicula_view_form" model="ir.ui.view">
+        <field name="name">pelicula.view.form</field>
+        <field name="model">videostore.pelicula</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="duracion"/>
+                            <field name="director"/>
+                        </group>
+                        <group>
+                            <field name="anio_lanzamiento"/>
+                            <field name="genero"/>
+                            <field name="numero"/>
+                        </group>
+                    </group>
+                    <label for="resenia"/>
+                    <field name="resenia"/>
+                </sheet>
+            </form>
+        </field>
+
+    </record>
+
+    <record id="pelicula_action" model="ir.actions.act_window">
+        <field name="name">Peliculas</field>
+        <field name="res_model">videostore.pelicula</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="pelicula_view_tree"/>
+    </record>
+
+    <menuitem id="pelicula_menu" action="pelicula_action" name="Pelicula" sequence="10" parent="tienda_menu"/>
+
+</odoo>
