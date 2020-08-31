@@ -6,7 +6,7 @@
         <field name="name">pelicula.view.tree</field>
         <field name="model">videostore.pelicula</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree> <!-- se muestra de lista-->
                 <field name="name"/>
                 <field name="duracion"/>
                 <field name="director"/>
@@ -42,6 +42,26 @@
                     </group>
                     <label for="resenia"/>
                     <field name="resenia"/>
+                    <label for="line_ids"/>
+                    <field name="line_ids" context="{'default_pelicula_id': id}"> <!--pasar el valor por defecto-->
+                        <tree> <!--botton-->
+                            <field name="pelicula_id" invisible="1"/>
+                            <field name="actor_id"/>
+                            <field name="sueldo"/>
+                        </tree>
+                        <form>
+                            <group>
+                                <group>
+                                    <field name="pelicula_id" invisible="1"/>
+                                    <field name="actor_id"/>
+                                </group>
+                                <group>
+                                    <field name="sueldo"/>
+                                </group>
+                            </group>
+
+                        </form>
+                    </field>
                 </sheet>
             </form>
         </field>
@@ -56,5 +76,49 @@
     </record>
 
     <menuitem id="pelicula_menu" action="pelicula_action" name="Pelicula" sequence="10" parent="tienda_menu"/>
+
+    <!-- Peliculas x actor-->
+    <record id="pelicula_actor_view_tree" model="ir.ui.view">
+        <field name="name">pelicula_actor_view_tree</field>
+        <field name="model">videostore.pelicula.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="pelicula_id"/>
+                <field name="actor_id"/>
+                <field name="sueldo"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="pelicula_actor_view_form" model="ir.ui.view">
+        <field name="name">pelicula_actor_view_form</field>
+        <field name="model">videostore.pelicula.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="pelicula_id"/>
+                            <field name="actor_id"/>
+                        </group>
+                        <group>
+                            <field name="sueldo"/>
+                        </group>
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="pelicula_actor_action" model="ir.actions.act_window">
+        <field name="name">Peliculas Actores</field>
+        <field name="res_model">videostore.pelicula.line</field>
+        <field name="view_mode">tree,form</field> <!-- muestra la lista, muestra lo de adentro-->
+        <field name="view_id" ref="pelicula_actor_view_tree"/>
+    </record>
+
+    <menuitem id="pelicula_actor_menu" action="pelicula_actor_action" name="Pelicula Actor" sequence="10" parent="tienda_menu"/>
 
 </odoo>
