@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <!-- Lista de Peliculas -->
+    <!-- Lista de actores -->
     <record id="actor_view_tree" model="ir.ui.view">
         <field name="name">actor.view.tree</field>
         <field name="model">videostore.actor</field>

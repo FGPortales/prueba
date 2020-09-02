@@ -15,7 +15,8 @@
          # archivo
          'views/video_store_menu.xml',
          'views/pelicula_views.xml',
-        'views/actor_views.xml'
+        'views/actor_views.xml',
+        'views/cine_views.xml',
     ],
     'installable': True,
 }

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<odoo>
+    <!-- Lista de cines (tree)-->
+    <record id="cine_view_tree" model="ir.ui.view">
+        <field name="name">cine.view.tree</field>
+        <field name="model">videostore.cine</field>
+        <field name="arch" type="xml">
+               <tree>
+                   <field name="name"/>
+                   <field name="direccion"/>
+                   <field name="capacidad"/>
+               </tree>
+        </field>
+    </record>
+
+    <!-- Cines (Form) -->
+    <record id="cine_view_form" model="ir.ui.view">
+        <field name="name">cine.view.form</field>
+        <field name="model">videostore.cine</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="direccion"/>
+                        <field name="capacidad"/>
+                    </group>
+                    <label for="pel_cin"/>
+                    <field name="pel_cin" context="{'default_cinec_id': id}"> <!--para pasar algo por defecto-->
+                        <tree>
+                            <field name="peliculac_id"/>
+                            <field name="cinec_id"/>
+                            <field name="fecha_estreno"/>
+                        </tree>
+                        <form>
+                            <group>
+                                <field name="peliculac_id"/>
+                                <field name="cinec_id"/>
+                            </group>
+                            <group>
+                                <field name="fecha_estreno"/>
+                            </group>
+                        </form>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+
+    </record>
+
+    <record id="cine_action" model="ir.actions.act_window">
+        <field name="name">Cines</field>
+        <field name="res_model">videostore.cine</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="cine_view_tree"/>
+    </record>
+
+    <menuitem id="cine_menu" action="cine_action" name="Cine" sequence="30" parent="tienda_menu"/>
+
+    <!--Peliculas x cine (tree)-->
+    <record id="pelicula_cine_view_tree" model="ir.ui.view">
+        <field name="name">pelicula.cine.view.tree</field>
+        <field name="model">videostore.pelicula.cine</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="peliculac_id"/>
+                <field name="cinec_id"/>
+                <field name="fecha_estreno"/>
+            </tree>
+        </field>
+    </record>
+    <!--Peliculas x cine (form)-->
+    <record id="pelicula_cine_view_form" model="ir.ui.view">
+        <field name="name">pelicula.cine.view.form</field>
+        <field name="model">videostore.pelicula.cine</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="peliculac_id"/>
+                        <field name="cinec_id"/>
+                    </group>
+                    <group>
+                        <field name="fecha_estreno"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="pelicula_cine_action" model="ir.actions.act_window">
+        <field name="name">Peliculas Cines</field>
+        <field name="res_model">videostore.pelicula.cine</field>
+        <field name="view_id" ref="pelicula_cine_view_tree"/>
+    </record>
+
+    <menuitem id="pelicula_cine_menu" action="pelicula_cine_action" name="Pelicula Cine" sequence="10" parent="tienda_menu"/>
+
+</odoo>

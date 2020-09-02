@@ -21,12 +21,13 @@ class Pelicula(models.Model):
     numero = fields.Integer(string='Número')
     resenia = fields.Text(string='Reseña')
     line_ids = fields.One2many('videostore.pelicula.line', 'pelicula_id', string='Actores') # nombre, comunicacion # relacion de las clases
+    pel_cin = fields.One2many('videostore.pelicula.cine', 'peliculac_id', string='Cines')
 
 
 class PeliculaLine(models.Model):
     _name = 'videostore.pelicula.line'
     _description = 'Peliculas por actor'
-    #-rec_name = 'pelicula_id'
+    #-rec_name = 'pelicula_id' # cuando no hay campo name y se quiere reemplzar
 
     def _default_sueldo(self):
         return 1000
@@ -43,7 +44,7 @@ class PeliculaLine(models.Model):
             #self.name = '%s %s %s' % (self.pelicula_id.name, self.actor_id.name, self.actor_id.apellido)
             self.name = '{} {} {}'.format(self.pelicula_id.name, self.actor_id.name, self.actor_id.apellido)
         else:
-            self.name =''
+            self.name = ''
 
     _sql_constraints = [
         ('unique_pelicula_id_actor_id', 'unique(pelicula_id,actor_id)', 'relacion entre pelicula y actor debe ser unica'),
