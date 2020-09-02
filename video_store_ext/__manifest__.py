@@ -7,7 +7,7 @@
     'category': 'Tools',
     'version': '13.0.0.0.1',
     'depends': [
-        'base',
+        'video_store',
     ],
     'data': [ # para cargar al sistema
         ## Archivo de seguridad

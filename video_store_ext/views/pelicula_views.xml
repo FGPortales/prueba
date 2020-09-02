@@ -9,11 +9,10 @@
             <xpath expr="//field[@name='name']" position="after">
                 <field name="titulo_original"/>
             </xpath>
-              <!-- herramientoa dentro del xml para ubicar sobre vista de la cual heredamos-->
+            <!-- herramientoa dentro del xml para ubicar sobre vista de la cual heredamos-->
             <xpath expr="//field[@name='duracion']" position="attributes">
                 <attribute name="required">True</attribute>
                 <attribute name="string">Tiempo</attribute>
-
             </xpath>
         </field>
     </record>
