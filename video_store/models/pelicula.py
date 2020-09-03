@@ -24,6 +24,8 @@ class Pelicula(models.Model):
     pel_cin = fields.One2many('videostore.pelicula.cine', 'peliculac_id', string='Cines')
 
 
+
+
 class PeliculaLine(models.Model):
     _name = 'videostore.pelicula.line'
     _description = 'Peliculas por actor'

@@ -42,7 +42,7 @@
                     <field name="resenia"/>
                     <label for="line_ids"/>
                     <field name="line_ids" context="{'default_pelicula_id': id}"> <!--pasar el valor por defecto-->
-                        <tree> <!--botton-->
+                        <tree> <!-- se puede colocar botton-->
                             <field name="pelicula_id" invisible="1"/>
                             <field name="actor_id"/>
                             <field name="sueldo"/>

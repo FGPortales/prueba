@@ -22,4 +22,5 @@ class Actor(models.Model):
 
     _sql_constraints = [
         ('unique_name', 'unique(name)', 'El nombre no se puede repetir'),
+        ('unique_num_doc', 'unique(num_doc)', 'El dni ya esta registrado'),
     ]
