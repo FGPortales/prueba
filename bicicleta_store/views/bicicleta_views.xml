@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <!-- Vista Tipo Lista -->
+    <record id="bicicletastore_bicicleta_view_tree" model="ir.ui.view">
+        <field name="name">bicicletastore.bicicleta.view.tree</field>
+        <field name="model">bicicletastore.bicicleta</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="precio"/>
+                <field name="marca"/>
+                <field name="modelo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Tipo Formulario de Bicicleta -->
+    <record id="bicicletastore_bicicleta_view_form" model="ir.ui.view">
+        <field name="name">bicicletastore.bicicleta.view.form</field>
+        <field name="model">bicicletastore.bicicleta</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" placeholder="Nombre aqui"/>
+                            <field name="precio"/>
+                        </group>
+                        <group>
+                            <field name="marca"/>
+                            <field name="modelo"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="bicicletastore_bicicleta_action" model="ir.actions.act_window">
+        <field name="name">Bicicletas</field> <!--Label de la vista-->
+        <field name="res_model">bicicletastore.bicicleta</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="bicicletastore_bicicleta_view_tree"/>
+    </record>
+    <menuitem id="bicicleta_menu" name="Bicicleta" action="bicicletastore_bicicleta_action" sequence="10" parent="persona_menu"/>
+
+</odoo>

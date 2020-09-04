@@ -6,4 +6,7 @@ class Vendedor(models.Model):
     _description = 'Tabla vendedor'
 
     name = fields.Char(string='Nombre')
+    dni = fields.Char(string='DNI')
     direccion = fields.Char(string='Dirección')
+    telefono = fields.Char(string='Teléfono')
+    correo = fields.Char(string='Correo')

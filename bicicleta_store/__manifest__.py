@@ -15,6 +15,8 @@
         # Vistas
         'views/bicicleta_store_menus.xml',
         'views/cliente_views.xml',
+        'views/bicicleta_views.xml',
+        'views/vendedor_views.xml',
     ],
     'installable': True,
     'application': True,
