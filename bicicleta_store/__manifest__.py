@@ -10,6 +10,11 @@
     'website': 'https://www.vendobicicletas.com',
     'depends': ['base'],
     'data': [
+        # Archivo de reglas de acceso
+        'security/ir.model.access.csv',
+        # Vistas
+        'views/bicicleta_store_menus.xml',
+        'views/cliente_views.xml',
     ],
     'installable': True,
     'application': True,
