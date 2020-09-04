@@ -1,4 +1,4 @@
-from . import fields, models,api
+from odoo import api, fields, models
 
 
 class Cliente(models.Model):

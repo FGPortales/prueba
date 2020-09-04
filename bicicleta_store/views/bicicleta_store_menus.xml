@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <menuitem id="bicletastore_menu_root" name="Tienda Bicicleta" sequence="50"/>
+        <menuitem id="persona_menu" name="Persona" sequence="20" parent="bicletastore_menu_root"/>
+        <menuitem id="venta_menu" name="Venta" sequence="30" parent="bicletastore_menu_root"/>
+            <menuitem id="cliente_menu" name="Cliente" sequence="10" parent="persona_menu"/>
+            <menuitem id="vendedores_menu" name="Vendedores" sequence="30" parent="persona_menu"/>
+        <!--    <menuitem id="bicicleta_menu" name="Bicicleta" sequence="30" parent="persona_menu"/>-->
+
+</odoo>

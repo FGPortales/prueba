@@ -1,5 +1,4 @@
-from . import fields,models
-
+from odoo import fields, models
 
 class Factura(models.Model):
     _name = 'facturacion.factura'
