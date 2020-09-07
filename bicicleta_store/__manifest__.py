@@ -17,6 +17,7 @@
         'views/cliente_views.xml',
         'views/bicicleta_views.xml',
         'views/vendedor_views.xml',
+        'views/comprobante_pago_views.xml',
     ],
     'installable': True,
     'application': True,

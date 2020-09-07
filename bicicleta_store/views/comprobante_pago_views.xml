@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<odoo>
+    <!-- Lista de Comprobante de Pago(Tree) -->
+    <record id="comprobantepago_cliente_view_tree" model="ir.ui.view">
+        <field name="name">comprobantepago.cliente.view.tree</field>
+        <field name="model">bicicletastore.comprobantepago.cliente</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="tipo"/>
+                <field name="fecha_emision"/>
+                <field name="fecha_vencimiento"/>
+                <field name="terminos_pago"/>
+                <field name="moneda"/>
+                <field name="cliente_id"/>
+                <field name="vendedor_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Formulario de Comprobante de Pago(Form) -->
+    <record id="comprobantepago_cliente_view_form" model="ir.ui.view">
+        <field name="name">comprobantepago.cliente.view.form</field>
+        <field name="model">bicicletastore.comprobantepago.cliente</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="cliente_id"/>
+                            <field name="vendedor_id" options="{'no_create':True}"/>
+                            <field name="tipo" widget="radio"/>
+                            <field name="fecha_emision"/>
+                        </group>
+                        <group>
+                            <field name="fecha_vencimiento"/>
+<!--                            <button name="status" icon="fa-calendar"/>-->
+                            <field name="terminos_pago"/>
+                            <field name="moneda"/>
+                        </group>
+                    </group>
+                    <label for="linea_ids"/>
+                    <field name="linea_ids" context="{'default_comprobante_id': id}">
+                        <tree> <!-- editable="top" o tambien puede ir editable="bottom"-->
+                            <field name="name"/>
+                            <field name="comprobante_id" invisible="True"/>
+                            <field name="bicicleta_id"/>
+                            <field name="cantidad"/>
+                            <field name="precio"/>
+                            <field name="precio_total"/>
+                        </tree>
+                        <form>
+                            <sheet>
+                                <group>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="comprobante_id"/>
+                                        <field name="bicicleta_id"/>
+                                    </group>
+                                    <group>
+                                        <field name="cantidad"/>
+                                        <field name="precio"/>
+                                        <field name="precio_total"/>
+                                    </group>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="comprobantepago_cliente_action" model="ir.actions.act_window">
+        <field name="name">Comprobante de Pago</field>
+        <field name="res_model">bicicletastore.comprobantepago.cliente</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="comprobantepago_cliente_view_tree"/>
+    </record>
+
+    <menuitem id="comprobantepago_cliente_menu" action="comprobantepago_cliente_action" name="Comprobante de Pago" sequence="10" parent="bicletastore_menu_root"/>
+
+</odoo>

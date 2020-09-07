@@ -2,11 +2,11 @@ from odoo import api,fields, models
 
 
 GENERO_SELECTION = [
-    ('terror','Terror'),
-    ('horror','Horror'),
-    ('comedio','Comedia'),
-    ('suspenso','Suspenso'),
-    ('drama','Drama')
+    ('terror', 'Terror'),
+    ('horror', 'Horror'),
+    ('comedio', 'Comedia'),
+    ('suspenso', 'Suspenso'),
+    ('drama', 'Drama')
 ]
 
 class Pelicula(models.Model):
@@ -17,7 +17,7 @@ class Pelicula(models.Model):
     duracion = fields.Char(string='Duración')
     director = fields.Char(string='Nombre Director', required=True)
     anio_lanzamiento = fields.Char(stirng='Año lanzamiento')
-    genero = fields.Selection(GENERO_SELECTION,string='Género')
+    genero = fields.Selection(GENERO_SELECTION, string='Género')
     numero = fields.Integer(string='Número')
     resenia = fields.Text(string='Reseña')
     line_ids = fields.One2many('videostore.pelicula.line', 'pelicula_id', string='Actores') # nombre, comunicacion # relacion de las clases
