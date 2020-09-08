@@ -16,6 +16,9 @@
                 <field name="moneda"/>
                 <field name="cliente_id"/>
                 <field name="vendedor_id"/>
+                <field name="total_todo"/>
+                <field name="estado"/>
+                <field name="saldo"/>
             </tree>
         </field>
     </record>
@@ -40,6 +43,7 @@
 <!--                            <button name="status" icon="fa-calendar"/>-->
                             <field name="terminos_pago"/>
                             <field name="moneda"/>
+                            <field name="estado"/>
                         </group>
                     </group>
                     <label for="linea_ids"/>
@@ -69,6 +73,34 @@
                             </sheet>
                         </form>
                     </field>
+                    <group col="6">
+                        <field name="total_todo"/>
+                    </group>
+                    <group col="6">
+                        <field name="saldo"/>
+                    </group>
+                    <!--<record id="comprobantepago_historico_view_tree" model="ir.ui.view">-->
+                        <!--<field name="name">comprobantepago.historico.view.tree</field>-->
+                      <!--  <field name="model">bicicletastore.comprobantepago.historico</field>-->
+                        <field name="historico">
+                            <tree>
+                                <field name="fecha"/>
+                                <field name="monto"/>
+                            </tree>
+                            <form>
+                                <sheet>
+                                    <group>
+                                        <group>
+                                            <field name="fecha"/>
+                                        </group>
+                                        <group>
+                                            <field name="monto"/>
+                                        </group>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+
                 </sheet>
             </form>
         </field>
