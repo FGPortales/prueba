@@ -49,7 +49,7 @@ class ComprobantePagoCliente(models.Model):
         if self.fecha_emision > self.fecha_vencimiento:
             self.estado = 'Vencido'
         elif self.fecha_emision < self.fecha_vencimiento:
-            self.estado = 'Pendiente'
+            self.estado = 'Pendiente '
         else:
             self.estado = 'Hoy'
 
